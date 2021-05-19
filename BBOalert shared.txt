@@ -1,2 +1,2 @@
 BBOalert, Dropbox 210515
-Import,https://www.dropbox.com/s/vfyfu86h8zgyju6/bboalert%20murali.txt?dl=0
+Import,https://github.com/meempatmurali/Bridge/blob/main/bboalert%20murali.txt
