@@ -1,0 +1,38 @@
+BBOAlert, <b><br>Murali Director 210512<br></b>
+//Javascript,https://raw.githubusercontent.com/stanmaz/BBOalert/master/Scripts/stanmazLib.js
+//Script,onAnyMutation,stanmazLib.BACKSPACE_BUTTONS(false);
+//Script,onAnyMutation,stanmazLib.REMOVE_ICONS_FROM_TABS();
+//Script,onAnyMutation,stanmazLib.ALL_INPUT_BUTTONS();
+Script,onDataLoad,document.getElementById("bboalert-sc").style.backgroundColor = "green";
+Script,onDataLoad,document.getElementById("bttab-buttons").click();
+Shortcut, Game setup, , width=100% backgroundColor=palegreen fontSize=28px
+Shortcut, 6 pairs: 4 boards per round 5 rounds 28 mins per round Howell movement, 4 boards per round 5 rounds 28 mins per round Howell movement , width=50% backgroundColor=gold
+Shortcut, 8 pairs: 3 boards per round 6 rounds 21 mins per round Howell movement, 3 boards per round 6 rounds 21 mins per round Howell movement , width=50% backgroundColor=antiquewhite
+Shortcut, 10 pairs:  2 boards per round 9 rounds 14 mins per round Howell movement, 2 boards per round 9 rounds 14 mins per round Howell movement , width=50% backgroundColor=skyblue
+Shortcut, 14 pairs: 3 boards per round 6 rounds 21 mins per round Mitchel movement, 3 boards per round 6 rounds 21 mins per round Mitchel movement. , width=50% backgroundColor=greenyellow
+Shortcut, 18 pairs: 2 boards per round 9 rounds 14 mins per round Mitchel movement, 2 boards per round 9 rounds 14 mins per round Mitchel movement , width=50%  backgroundColor=pink
+Shortcut, Game Time, , width=100% backgroundColor=palegreen fontSize=28px
+Shortcut,Tue_, Welcome to our Tuesday evening game. , width=50% backgroundColor=yellow
+Shortcut,Thur_, Welcome to our Thursday afternoon game. , width=50% backgroundColor=white
+Shortcut,10 min to start, Please ensure you are at the table 10 mins before start , width=50% backgroundColor=burlywood
+Shortcut,5 min to start, We should be starting in about 5 minutes. Please make sure your partner is online. , width=50% backgroundColor=peachpuff
+Shortcut,On yr Mark, On your mark. Get set , width=50% backgroundColor=peachpuff
+Shortcut,Fun_, Have fun and play nice. , width=50% backgroundColor=thistle
+Shortcut,Murali_, This is Murali your director. Enjoy your game. Please don’t hesitate to call me when you face an issue. , width=50% backgroundColor=lightblue
+Shortcut,Claim_, Please claim when you can. If you are not comfortable with the claim reject the claim and the claimer will play it out. , width=50% backgroundColor=lightgreen
+Shortcut,Waiting Sub to table, Thanks for your patience. We are looking for sub. , width=50% backgroundColor=darkkhaki
+Shortcut,Stake_, This evening the winner gets a FREE game. Wish you good luck. , width=50% backgroundColor=peachpuff
+Shortcut,Last Round_, Last round coming up. , width=50% backgroundColor=khaki
+Shortcut, Thanks_, Thanks for playing. We look forward to your continued participation and please let your friends know. , width=50% backgroundColor=lightblue
+Shortcut,Weekly Program, We have open games daily at 12.05 pm and at 6.05 pm on Tuesdays. On Sunday and Tuesday evenings it is a FREE game for the winning pair. , width=50% backgroundColor=cornflowerblue
+Shortcut,Review Board, Board no   for review, width=50% backgroundColor=lightpink
+Shortcut,Time Warning, Less than 2 minutes on the clock. Please hurry up. \n, width=100% backgroundColor=palegreen
+   
+    Button,😀, 😀 \n,width= borderRadius=100% fontSize=40px
+    Button,😞, 😞 \n,width= borderRadius=100% fontSize=40px
+    Button,😢, 😢 \n,width= borderRadius=100% fontSize=40px
+    Button,😬, 😬 \n,width= borderRadius=100% fontSize=40px
+    Button,😛, 😛 \n,width= borderRadius=100% fontSize=40px
+    Button,😊, 😊 \n,width= borderRadius=100% fontSize=40px
+    Button,👍, 👍 \n,width= borderRadius=100% fontSize=40px
+    Button,👎, 👎 \n,width= borderRadius=100% fontSize=40px

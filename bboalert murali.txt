@@ -1,0 +1,560 @@
+BBOalert,<b><br>Murali 210518<br></b>,
+//Javascript,https://raw.githubusercontent.com/stanmaz/BBOalert/master/Scripts/stanmazLib.js
+//Script,onAnyMutation,stanmazLib.BACKSPACE_BUTTONS(false);
+//Script,onAnyMutation,stanmazLib.REMOVE_ICONS_FROM_TABS();
+Script,onExplainCallDisplayed
+getExplainCallBox().style.width = "auto";
+getExplainCallBox().style.height = "auto";
+dragElement(getExplainCallBox());
+Script
+//Script,onAuctionBegin
+var MH = getMyHand();
+var HCP = (MH.match(/A/g) || []).length*4 + (MH.match(/K/g) || []).length*3 + (MH.match(/Q/g) || []).length*2 + (MH.match(/J/g) || []).length;
+$(".navBarClass .titleClass").text("HCP = " + HCP);
+//Script
+Shortcut, Shortcuts for the CHAT box, , width=100% backgroundColor=palegreen fontSize=28px
+Shortcut,UDCA, Hello. 2/1. Upside down count attitude.Good Luck. \n, width=50% backgroundColor=gold
+Shortcut,Standard Carding, Hello. 2/1. Standard carding. Good Luck. \n, width=50% backgroundColor=antiquewhite
+Shortcut,Good Luck, Good luck partner \n, width=50% backgroundColor=skyblue
+Shortcut,Thank you, Thank You. \n, width=50% backgroundColor=greenyellow
+Shortcut,Well done partner, Well done partner \n, width=50%  backgroundColor=pink
+Shortcut,Well done opps, Well done opponents \n, width=50% backgroundColor=violet
+Shortcut,Be right back, Be right back\n, width=50% backgroundColor=papayawhip
+Shortcut,Back, Back\n, width=50% backgroundColor=navajowhite
+Shortcut, For SLAM bidding to ALERT box, , width=100% backgroundColor=palegreen fontSize=28px
+Shortcut,KCA, Asking for Key cards, width=50% backgroundColor=yellow
+Shortcut,K ask,Asking about Ks, width=50% backgroundColor=white
+Shortcut,0 or 3 Key Cards, 0 or 3 Key cards, width=50% backgroundColor= peachpuff
+Shortcut,1 or 4 Key Cards, 1 or 4 Key cards, width=50% backgroundColor=thistle
+Shortcut,2 or 5 Key Cards no Q, 2 or 5 Key cards without Q, width=50% backgroundColor=burlywood
+Shortcut,2 or 5 Key Cards with Q, 2 or 5 Key cards with Q, width=50% backgroundColor=peachpuff
+Shortcut,Q ask, Asking about Q of trumps, width=50% backgroundColor=lightblue
+Shortcut,no Q, denying Q of trumps, width=50% backgroundColor=lightgreen
+Shortcut,Q no K, Have Q but no Ks, width=50% backgroundColor=khaki
+Shortcut,Q with K of bid suit, Have Q and K of bid suit, width=50% backgroundColor=lightblue
+Shortcut,K of bid suit, K of bid suit, width=50% backgroundColor=darkkhaki
+Shortcut,One K, 1 K, width=50% backgroundColor=cornflowerblue
+Shortcut,Two K, 2 Ks, width=50% backgroundColor=lightpink
+Shortcut,Three K, 3 Ks, width=50% backgroundColor=lightsalmon
+Shortcut,A ask, Asking about As, width=50% backgroundColor=aqua
+Shortcut,Zero A, No A, width=50% backgroundColor=peachpuff
+Shortcut,One A, 1 A, width=50% backgroundColor=blanchedalmond
+Shortcut,Two A, 2 As, width=50% backgroundColor=lightgreen
+Shortcut,Three A, 3 As, width=50% backgroundColor=tan	
+Shortcut, Four A, 4 As, width=50% backgroundColor=lightblue
+Shortcut, Splinter, Splinter, width=50% backgroundColor=whitesmoke
+Shortcut, Unknown Splinter, Unknown Splinter, width=50% backgroundColor=peachpuff
+Button,Transfer, Transfer to,backgroundColor=yellow width=20% fontSize=32px borderRadius=100%
+Button,♣, !C,width=16% fontSize=32px borderRadius=100%
+Button,♦, !D,width=16% fontSize=32px borderRadius=100% color=red
+Button,♥, !H,width=16% fontSize=32px borderRadius=100% color=red
+Button,♠, !S,width=16% fontSize=32px borderRadius=100%
+Button,NT, NT,borderRadius=100% width=16% fontSize=32px
+Button,Emotions,,width=100% backgroundColor=palegreen fontSize=16px
+Button,😀, 😀\n,width= borderRadius=100% fontSize=32px
+Button,😞, 😞\n,width= borderRadius=100% fontSize=32px
+Button,😢, 😢\n,width= borderRadius=100% fontSize=32px
+Button,👍, 👍\n,width= borderRadius=100% fontSize=32px
+Button,👎, 👎\n,width= borderRadius=100% fontSize=32px
+Button, 😊, 😊\n,width= borderRadius=100% fontSize=32px
+Button,👏 ,👏\n, width= borderRadius=100% fontSize=32px
+
+Script,X,R = C.match(makeRegExp(CR))[1];
+Script,Y,R = C.match(makeRegExp(CR))[2];
+Script,Z,R = B.match(makeRegExp(BR))[1];
+
+Script,LeapingMicheals,\
+var myMinor = B.slice(-1);\
+var theirMajor = C.slice(-1);\
+var myMajor = 'S';\
+if (theirMajor === 'S') myMajor = 'H';\
+R = '5+!' + myMinor + ' 5+!' + myMajor;
+
+Script,4thSuit,if ([...new Set((C+B).match(/[CDHS]/g))].length == 4) R='4th suit forcing to game'
+**--**--**--,[(2|3)]*,%4thSuit%
+2C--**--**--,**,
+
+1[HS]--,1N, Forcing
+
+,2C,Strong
+
+Pre-emptive
+
+1C(--|1*),3C, Pre-emptive
+1D(--|1*),3D, Pre-emptive
+1H**,3H, Pre-emptive
+1H2H,3H,
+1H3*,3H,
+1S**,3S, Pre-emptive
+1S2S,3S,
+1S3*,3S
+
+Micheals
+
+1H2H--,2N,Asking for the minor,
+1S2S--,2N,Asking for the minor,
+
+Unusual 2NT
+
+1[HS],2N, 5+ !C and !D
+1C,2N,5+!D and 5+!H
+1D,2N,5+!C and 5+!H
+
+Jacoby 2NT
+
+1[HS]--,2N, 4 card support game going hand
+1H--2N--,4H, No interest in proceeding further
+1H--2N--,3([CDS]), Shortness in !%Z%
+1H--2N--,3([CDS])--,4N, Key card asking 
+1H--2N--,4[CD], Second good suit
+1H--2N--,3S, Second good suit
+1S--2N--,4S, No interest in proceeding further
+1S--2N--,3([CDH]), Shortness in !%Z%
+1S--2N--,3([CDH])--,4N, Key card asking 
+1S--2N--,4[CDH], Second good suit
+1[HS]--2N--3[CD]--4N--,5N, even key cards and a void
+
+2NT Opening
+
+,2N,20-21 Balanced hand
+2N--,3D, Transfer to !H
+2N--,3H, Transfer to !S
+2N--,3S, Transfer to 3N
+2N--,3N, 5 !S and 4 !H
+2N--3C--,3D, No 5 card major but at least one 4 card major
+2N--3C--,3H, 5 card !H suit
+2N--3C--,3S, 5 card !S suit
++,3N, No 4 card major
+2N--3C--3D--,3H,4 card !S suit
++,3S, 4 card !H suit
++,4D, Both majors
+2N--,4D, Transfer to !H
++,4H, Transfer to !S
+
+
+NT Opening
+
+,1N, 15 to 17 Balanced
+**1N(**|Db|2C|--),2D,!H
+**1N(**|Db|2C|--),4D,!H
+**1N(**|Db|2C|--),2H,!S
+**1N(**|Db|2C|--),4H!S
+**1N--4D--4H--4N--5D--,5S,Asking Q
+1N(**|Db|2C|--),2D,!H
+1N(**|Db|2C|--),4D,!H
+1N(**|Db|2C|--),2H, !S
+1N(**|Db|2C|--),4H,!S
+1N--4D--4H--4N--,5D,0 or 3 Key cards in !H,
++,5C,1 or 4 Key cards  in !H,
++,5H, 2 Key cards without Q of !H
++,5S, 2 Key cards with Q of !H
+1N--4D--4H--4N--5D--,5S,Asking Q of !H
+1N--4D--4H--4N--5C--,5D,Asking Q of !H
+1N--4D--4H--4N--5C--5N--,6C, 0 Ks
++,6D,1 K
++,6H,2 Ks
+1N--4D--4H--4N--5D--5N--,6C,0 Ks,
++,6D, 1 K
++,6H, 2Ks
+1N--4H--4S--4N--,5D,0 or 3 Key cards in !S,
++,5C,1 or 4 Key cards  in !S,
++,5H, 2 Key cards without Q of !S
++,5S, 2 Key cards with Q of !S
+1N--4H--4S--4N--5D--,5H,Asking Q of !S
+1N--4H--4S--4N--5C--,5D,Asking Q of !S
+1N--4H--4S--4N--5C--5N--,6C, 0 Ks
++,6D,1 K
++,6H,2 Ks
+1N--4H--4S--4N--5D--5N--,6C,0 Ks,
++,6D, 1 K
++,6H, 2Ks
+
+Option, 1N2S 4 way transfer, muralinair+rosero, muralinair+rbbill1951, muralinair+dulsefina, muralinair+pingaksha4, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+klb52, muralinair+flagsed, muralinair+gayleq, muralinair+sureshj, muralinair+tpg, muralinair+kaciwest,
+1N(Db|2C|--),2S,!C
+1N(Db|2C|--),2N,!D
+1N(Db|2C|--)2S--,3C, I Like !C,
+1N(Db|2C|--)2N--,3D, I Like !D,
+1N(Db|2C|--)2S--,2N, I Don’t Like !C,
+1N(Db|2C|--)2N--,3C, I Don’t Like !D
+1N--2C--2D--,2N,May or may not have a 4 card major
+
+Option, 1N2S relay, muralinair+asalem
+1N(Db|2C|--),2S, Relay to !C
+1N(Db|2C|--),2N, Invite
+Option
+
+Option,1N Super accept ON, muralinair+klb52, 
+1N--2[DH]--,3[HS], Minimum hand with 4+ card support
++,2N, Maximum hand with 3 card support
++,(2S|3C),Maximum hand with 4+ card support
+
+Option, NT Defence Cappellati, muralinair+rosero, muralinair+asalem, muralinair+rbbill1951, muralinair+dulsefina, muralinair+pingaksha4, muralinair+sureshj, muralinair+jake1943, muralinair+klb52, muralinair+kaciwest,
+(1N|1N----),2C, Single suited hand
+(1N|1N----),2D, Both majors
+(1N|1N----),2H, !H and a minor
+(1N|1N----),2S, !S and a minor
+(1N|1N----),2N, Both Minors
+(1N|1N----),Db, Equivalent hand or better
+(1N|1N----)Db--, 2D, Transfer to !H
+(1N|1N----)Db--, 2H, Transfer to !S
+(1N|1N----)Db--, 2S, Interested in playing in !C
+(1N|1N----)Db--, 2N, Interested in playing in !D
+(1N|1N----)2C--,2D, Relay Bid
+(1N|1N----)2[HS]--, 2N, Please bid your minor
+
+Option, NT Defence Meckwell, muralinair+flagsed, muralinair+az fan, muralinair+dkkale, muralinair+gayleq, muralinair+fredbatko, , muralinair+tpg
+(1N|1N----),Db,Both Majors or single suit
+(1N|1N----),2N,Both Minors
++,2C,!C and a major
++,2D,!D and a major
+(1N|1N----)Db--,2C, Relay Bid
+(1N|1N----)2[CD]--,2H, Pass or correct
+
+Puppet
+
+Option, 1N Puppet No, , muralinair+fredbatko, muralinair+sureshj, muralinair+kaciwest,
+Option
+
+Option, 1N Puppet, muralinair+rosero, muralinair+dulsefina, muralinair+rbbill1951, muralinair+asalem, muralinair+pingaksha4, muralinair+gayleq, muralinair+flagsed, muralinair+dkkale, muralinair+az fan, muralinair+jake1943, muralinair+klb52, muralinair+tpg
+1N--,3C, Asking for a 5 card major
+1N--3C--,3H, 5 card !H suit,
++,3S, 5 card !S suit,
++,3D,No 5 card major have 1 or 2 4 card major
++,3N, No 4 or 5 card major
+1N--3C--3D--,3H, 4 card !S
+1N--3C--3D--,3S, 4 card !H
+
+
+Flannery 
+
+Option, Flannery no, muralinair+az fan, muralinair+dkkale, muralinair+jake1943, muralinair+fredbatko, muralinair+gayleq, muralinair+tpg
+
+Option, Flannery Frag, muralinair+rosero, muralinair+rbbill1951, muralinair+dulsefina, muralinair+asalem, muralinair+flagsed, , muralinair+sureshj, muralinair+kaciwest,
+,2D,11-15 points 5!H 4!S
+2D--,2N, Asking further description of hand
+2D--2N--,3C, 3 card !C suit
+2D--2N--,3D, 3 card !D suit
+2D--2N--,3H, 11-13 points 2 2 in minors
+2D--2N--,3S, 14-15 points 2 2 in minors
+2D--2N--,4C, 4 card !C suit
+2D--2N--,4D, 4 card !D suit
+2D--,4C, Key cards in !H
+2D--,4D, Key cards in !S
+1H--,1N,Forcing Could have four card !S
+
+Option, Flannery Short, muralinair+pingaksha4, muralinair+klb52
+,2D,11-15 points 5!H 4!S
+2D--,2N, Asking further description of hand
+2D--2N--,3C, shortness in !C 
+2D--2N--,3D, shortness in !D 
+2D--2N--,3H, 11-13 points 2 2 in minors
+2D--2N--,3S, 14-15 points 2 2 in minors
+2D--2N--,4C, 4 card !C suit
+2D--2N--,4D, 4 card !D suit
+2D--,4C, Key cards in !H
+2D--,4D, Key cards in !S
+1H--,1N,Forcing Could have four card !S
+
+Bergen
+
+Option, Bergen No, muralinair+flagsed, muralinair+gayleq
+1H--,3H, 
+1S--,3S, 
+
+Option, Bergen 3C strong, muralinair+pingaksha4, muralinair+dulsefina, muralinair+dkkale, muralinair+rbbill1951, muralinair+jake1943, , muralinair+sureshj, muralinair+asalem, muralinair+tpg, muralinair+kaciwest,
+1([HS])--,3C, 4 cards !%X% and 10+ points
+1([HS])--,3D, 4 cards !%X%  and 6 – 9 points
+
+Option, Bergen 3C weak, muralinair+rosero, muralinair+fredbatko, muralinair+az fan, muralinair+klb52,
+1([HS])--,3C, 4 cards !%X% and 6 – 9 points
+1([HS])--,3D, 4 cards !%X%  10+ points
+
+XYZ or NMF
+
+Option, XYZ no instead NMF, muralinair+rbbill1951, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+flagsed, muralinair+gayleq, muralinair+asalem, muralinair+kaciwest,
+
+1C--1[HS]--1N--,2D, New Minor Forcing
+1D--1[HS]--1N--,2C, New Minor Forcing
+
+Option, XYZ, muralinair+rosero, muralinair+dulsefina, muralinair+sureshj, muralinair+pingaksha4, muralinair+tpg, muralinair+klb52,
+1* ** 1* ** 1*--,2C, Asking partner to bid 2!D
++,2D, Game Force
++,3[DHS], Game Force
+1* ** 1* ** 1* ** 1*--,2C, Asking partner to bid 2!D
+1* ** 1* ** 1*--2C--, 2D, Relay bid
++,2D, Game Force
++,3[DHS], Game Force
+
+Inverted Minor
+
+1C--,2C,10+ points 4+ !C
+1D--,2D,10+ points 4+ !D
+1D--2D--,2S,S control,
+
+
+CrissCross
+
+Option, CrissCross No, muralinair+rosero, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+dkkale, muralinair+fredbatko, muralinair+jake1943, , muralinair+flagsed, muralinair+gayleq, muralinair+sureshj, muralinair+asalem, muralinair+kaciwest,
+
+Option, CrissCross, muralinair+dulsefina, muralinair+tpg, muralinair+az fan,
+1C--,2D, Game Force and 4+!C
+1D--,3C, Game Force and 4+!D
+
+Spiral
+
+Option, Spiral no, muralinair+rosero, muralinair+dkkale, muralinair+fredbatko, muralinair+jake1943, muralinair+kaciwest,
+
+Option, Spiral 5, muralinair+rbbill1951, muralinair+dulsefina, muralinair+klb52, muralinair+pingaksha4, muralinair+sureshj, muralinair+tpg
+1[CD]--1H--2H--,2S, Asking further descriptionription of hand
+1[CD]--1S--2S--,2N, Asking further descriptionription of hand
+1[CD]--1H--2H--2S--,2N, 3 cards support weak hand
+1[C]--1H--2H--2S--,3C, 3 cards support 5+ !C 
+1[C]--1H--2H--2S--,3D, 3 cards support strong hand
+1[D]--1H--2H--2S--,3C, 3 cards support strong hand
+1[D]--1H--2H--2S--,3D, 3 cards support 5 card !D
+1[CD]--1H--2H--2S--,3H, 4 cards support weak hand
+1[CD]--1H--2H--2S--,3S, 4 cards support strong hand
+1[D]--1S--2S--2N--,3D, 3 cards support 5+ !D
+1[D]--1S--2S--2N--,3C, 3 cards support weak hand
+1[C]--1S--2S--2N--,3D, 3 card support strong hand
+1[C]--1S--2S--2N--,3C, 3 card support 5+ !C
+1[D]--1S--2S--2N--,3C, 3 card support weak hand
+1[CD]--1S--2S--2N--,3H, 3 card support strong  hand
+1[CD]--1S--2S--2N--,3S, 4 card support weak  hand
+1[CD]--1S--2S--2N--,3N, 4 card support strong hand
+
+Option, Spiral 4, , muralinair+az fan, muralinair+flagsed, muralinair+gayleq, muralinair+asalem
+1[CD]--1H--2H--,2N, asking further descriptionription of hand
+1[CD]--1H--2H--2N--, 3C, 3!H weak hand
+1[CD]--1H--2H--2N--, 3D, 3!H strong hand
+1[CD]--1H--2H--2N--, 3H, 4!H weak hand
+1[CD]--1H--2H--2N--, 3S, 4!H strong hand
+1[CD]--1S--2S--,2N, asking further descriptionription of hand
+1[CD]--1S--2S--2N--, 3C, 3!S weak hand
+1[CD]--1S--2S--2N--, 3D, 3!S strong hand
+1[CD]--1S--2S--2N--, 3H, 4!S weak hand
+1[CD]--1S--2S--2N--, 3S, 4!S strong hand
+
+Schuler
+
+Option, Schuler No, muralinair+rosero, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+flagsed, muralinair+sureshj, muralinair+asalem, muralinair+kaciwest,
+
+Option, Schuler, muralinair+dulsefina, muralinair+gayleq
+1S--2[CDH]--,2S, 5 card !S suit
+1S--2[CDH]--,2N, 6 card !S suit
+1H--2[CD]--,2H, 5 card !H suit
+1H--2[CD]--,2N, 6 card !Hsuit
+
+2C Opening
+
+Option, 2C2D GF, muralinair+rosero, muralinair+rbbill1951, muralinair+dkkale, muralinair+asalem, muralinair+az fan, , muralinair+fredbatko, muralinair+sureshj, muralinair+jake1943
+2C--,2N, !H suit
++,2H, Bust
++,2S, 5 card !S suit
++,3C, Good !C suit
++,3D, Good !D suit
+2C--2D--2N--3C--,3D,Deny 5 card major Have 4 card major
+2C--2D--2N--3C--3D--,3H,4 card !S
+2C--2D--2N--3C--3D--,3S,4 card !H
+
+Option, 2C2D Waiting, muralinair+gayleq, muralinair+kaciwest,
+2C--2D--2N--3C--,3D,Deny 5 card major Have 4 card major
++,3H, 5 cards !H suit
++,3S, 5 cards !S suit
++,3N, No 4 card major
+2C--2D--2N--3C--3D--,3H,4 card !S
+2C--2D--2N--3C--3D--,3S,4 card !H
+
+Option, 2C2D Kokish, muralinair+pingaksha4, muralinair+flagsed, muralinair+klb52, muralinair+dulsefina, muralinair+tpg
+2C--2D--,2H, Asking to bid !S
+2C--2D--2H--,2S, Satisfying relay
+2C--2D--2H--,2N, Transfer to !C
+2C--2D--2H--,3C, Transfer to !D
+2C--2D--2H--,3D, !H suit
+2C--2D--2H--,3H, Transfer to !S
+2C--2D--2H--2S--, 2N,  24 to 27 points
+2C--2D--2H--2S--, 3N,  28+ points
+2C--2D--2H--2S--, 3H,  !H and !C
+2C--2D--2H--2S--, 3D,  !H and !D
+2C--2D--2H--2S--, 3S,  !S and !H
+2C--2D--2H--2S--,3C, Relay bid 
+2C--2D--2H--2S--3C--,3D, Satisfying relay
+2C--2D--2H--2S--3C--3D,3H, 4!H
+2C--2D--2H--2S--3C--3D,3S, 4!S
+2C--2D--,3H, !D and !H
+2C--2D--,3S, !D and !S 
+2C--2D--2N--3C--,3D,Deny 5 card major Have 4 card major,
+
+Drury
+
+Option,Drury_2C_3_ 2D_ 4@3 @4, muralinair+rosero, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+rbbill1951, muralinair+klb52, muralinair+jake1943, muralinair+sureshj, muralinair+gayleq, muralinair+tpg, muralinair+kaciwest,
+1([HS])--,2C, 10+ points 3!%X%s
+1([HS])--,2D, 10+ points 4+!%X%s
+
+Option,Drury_2C_4_2D_3@3 @4, muralinair+pingaksha4
+1([HS])--,2D, 10+ points 3!%X%s
+1([HS])--,2C, 10+ points 4+!%X%s
+3[CDH]--,4C,Key card asking
+
+Option,Drury_2C_3_4@3 @4, muralinair+asalem, muralinair+flagsed, , muralinair+dulsefina,
+1([HS])--,2C, 10+ points 3+!%X%s
+Option,3rdhand@3 @4, muralinair+dulsefina, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+flagsed, muralinair+gayleq, muralinair+sureshj, muralinair+asalem, muralinair+tpg, muralinair+kaciwest,
+
+1[HS]--,1N,Semi Forcing
+1[HS]--,2N, Near Opening hand
+1[HS]--2N--,4C ,Ace Asking
+1[HS]--2N--4C--,4D,0 Ace
+1[HS]--2N--4C--,4H,1 Ace
+1[HS]--2N--4C--,4S,2 Ace
+1[HS]--2N--4C--,4N,3 Ace
+
+Option, Opening UDCA dc, muralinair+dulsefina, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+flagsed, muralinair+az fan, muralinair+jake1943, muralinair+klb52, , muralinair+sureshj
+
+Option, Opening Std Carding sx, muralinair+asalem, muralinair+gayleq, muralinair+fredbatko, muralinair+dkkale, muralinair+kaciwest,
+
+Lebensohl
+
+Option, Lebensohl no, muralinair+asalem, muralinair+rosero
+
+Option, Lebensohl, Muralinair+dulsefina, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+flagsed, muralinair+gayleq, muralinair+sureshj, muralinair+tpg, muralinair+kaciwest,
+
+1N2D,2N, Relay to 3!C
+1N2H,2N, Relay to 3!C
+1N2S,2N, Relay to 3!C
+1N2D,3D, Stayman with no stopper in your suit
+1N2H,3H, Stayman with no stopper in !H
+1N2S,3S, Stayman with no stopper in !S
+1N2D2N--,3C, As requested,
+1N2H2N--,3C, As requested
+1N2S2N--,3C, As requested
+1N2D,3N, Denies stopper
+1N2H,3N, Denies !H stopper
+1N2S,3N, Denies !S stopper
+1N2H2N--3C--,3H, Stayman with !H stopper
+1N2S2N--3C--,3S, Stayman with !S stopper
+1*2S----Db--,2N,Relay to 3!C
+1[CD]2[HS]----Db--,2N,Relay to 3!C
+2*Db--,2N,Relay to 3C
+
+On weak 2s
+2[DHS]Db--,2N, Relay bid
+2[DHS]----Db--,2N, Relay bid
+2[DHS]Db--2N--, 3C, As requested
+2[DHS]----Db--2N--, 3C, As requested
+
+On reverses
+1C--1H--2D--,2S,Asking partner to bid 2N or 3!C
+1C--1S--2D--,2H,Asking partner to bid 2N or 3!C-
+1H--1N--2S--,2N, Asking partner to bid 3!C
+1H--1N--2S--2N--,3C, Relay bid
+Alias,Reverse,(1[CDH]--1[DHSN]--2[H])
+Reverse--,2N, Asking partner to bid 3!C
+Reverse--2N--,3C, Relay bid
+
+
+Minorwood
+
+Option, Minorwood off, muralinair+rosero, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+flagsed, muralinair+gayleq, muralinair+asalem, muralinair+tpg, muralinair+kaciwest,
+
+Option, Minorwood, muralinair+pingaksha4, muralinair+rbbill1951, muralinair+klb52, muralinair+dulsefina, muralinair+sureshj
+/3N--$/,4([CD]), Key card asking in !%Z%
+/3N--4C--$/,4D, 1 or 4 Key cards in !C
+/3N--4C--$/,4H, 0 or 3 Key cards in !C
+/3N--4C--$/,4S, 2 Key cards w/o Q in !C
+/3N--4C--$/,4N, 2 Key cards with Q in !C
+/3N--4D--$/,4H, 1 or 4 Key cards in !D
+/3N--4D--$/,4S, 0 or 3 Key cards in !D
+/3N--4D--$/,4N, 2 Key cards w/o Q in !D
+/3N--4D--$/,5C, 2 Key cards with Q in !D
+2N--3S--3N--,4([CD]),Slam invite in !%Z%
+1N--2S--3C--,4C,Key Card asking
+1N--2N--3D--,4D,Key Card asking
+1C--1[HS]--2N--,4C,Key card asking
+1D--1[HS]--2N--,4D,Key card asking
+1C--1[HS]--2N--4C--,4D,1 or 4 Key Cards in !C 
+1C--1[HS]--2N--4C--,4H,0 or 3 Key Cards in !C 
+1C--1[HS]--2N--4C--,4S,2 Key Cards in !C without Q!C
+1C--1[HS]--2N--4C--,4N,2 Key Cards in !C with Q!C
+1D--1[HS]--2N--4D--,4D,1 or 4 Key Cards in !D
+1D--1[HS]--2N--4D--,4S,0 or 3 Key Cards in !D
+1D--1[HS]--2N--4D--,4N,2 Key Cards in !C without Q!D
+1D--1[HS]--2N--4D--,5C,2 Key Cards in !C with Q!D
+1D--2D--2S--3C--3N--4D--,4N,2 Key cards w/o Q
+
+Option, Unknown splinter no, muralinair+rosero, Muralinair+dulsefina, muralinair+klb52, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, , muralinair+gayleq, muralinair+asalem, muralinair+tpg, muralinair+kaciwest,
+
+Option, Unknown splinter yes, muralinair+pingaksha4, muralinair+rbbill1951, muralinair+flagsed, muralinair+sureshj
+1S--,3N,Unknown shortness 9 to 12 points
+1S--3N--,4C, Where is your shortness?
+1S--3N--4C--,4D,!C shortness
+1S--3N--4C--,4H,!D shortness
+1S--3N--4C--,4S,!H shortness 
+1H--,3S,Unknown shortness 9 to 12 points
+1H--3S--,3N, Where is your shortness?
+1H--3S--3N--,4C,!C shortness 
+1H--3S--3N--,4D,!D shortness
+1H--3S--3N--,4H,!H shortness
+Option
+
+Gambling 3NT
+
+Option, Gambling No, muralinair+jake1943
+
+Option, Gambling 3N, muralinair+rosero, muralinair+az fan, muralinair+rbbill1951, muralinair+asalem, muralinair+dulsefina, muralinair+dkkale, muralinair+fredbatko, muralinair+klb52, muralinair+sureshj, muralinair+pingaksha4, , muralinair+flagsed, muralinair+gayleq,muralinair+tpg, muralinair+kaciwest,
+,3N, Long unspecified minor
+3N--,4C, To correct or play
+
+ Option, Leaping Micheals ON, muralinair+pingaksha4, muralinair+klb52,
+[23][HS],4[CD],%LeapingMicheals%
+
+ Option, Leaping Micheals OFF, 
+ 
+Kickback
+
+Option,KB Off,
+
+
+Option,KB On, muralinair+dulsefina, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4
+1C2D2H--3H--4D--4H--,4S, Key Card Ask in H,
+
+1[CD]--1H**Db**4H--,4S, Key Card Ask in !H
++,4N,First round control on !S
+1[CD]--1S2*Db**4S--,4N, Key Card Ask in !S
+1N--4D--4H--,4S, Key Card Ask in !H
+1N--4D--4H--4S--,5C,0 or 3 Key cards in !H,
++,4N,1 or 4 Key cards  in !H,
++,5D, 2 Key cards without Q of !H
++,5H, 2 Key cards with Q of !H
+1N--4D--4H--4S--4N--,5C,Asking Q of !H
+1N--4D--4H--4S--5D--,5S,K ask
+1N--4D--4H--4S--5C--,5D,Asking Q of !H
+1N--4D--4H--4S--5C--5N--,6C, 0 Ks
++,6D,1 K
++,6H,2 Ks
+1N--4D--4H--4S--5D--5N--,6C,0 Ks,
++,6D, 1 K
++,6H, 2Ks
+
+Option, KB OFF,
+
+Wolfe
+
+Option, Wolfe, muralinair+dulsefina, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+sureshj
+1[CDH]--1[DHS]**2N--,3C, Asking partner to bid 3!D
+1[CDH]--1[DHS]**2N--,3D, Game Force
+
+Option, Updates ON
+Option, Updates OFF
+
+muralinair+rosero,muralinair+dulsefina, muralinair+klb52, muralinair+rbbill1951, muralinair+pingaksha4, muralinair+dkkale, muralinair+fredbatko, muralinair+az fan, muralinair+jake1943, muralinair+flagsed, muralinair+gayleq, muralinair+sureshj, muralinair+asalem, muralinair+tpg, muralinair+kaciwest,
+
+1S--1N--3D--3N--,4C, Gerber
+1S--1N--3D--3N--4C--4D--,4N,To play
+
+
+1D--1H--1S--2D--3C--,4D,Asking for Key cards,
+1S2S4N--,5H,2 or 5 Key cards without Q,
+1C3S4H--4N--,5H,2 or 5 Key cards without Q,
+2C3C----3S--4C--4D--4N--5C--,5D,Asking about Q of trumps,
+
+
