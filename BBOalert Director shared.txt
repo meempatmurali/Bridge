@@ -1,2 +1,2 @@
-BBOalert,
+BBOalert, Github 210519
 Import,https://github.com/meempatmurali/Bridge/blob/main/BBOAlert%20director.txt
